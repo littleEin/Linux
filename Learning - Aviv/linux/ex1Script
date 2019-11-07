@@ -1,0 +1,44 @@
+# get arr from env variable
+if [[ -z "${arr_input}" ]]; then
+  echo 'please enter the input to the enviorment variable arr_input'
+  exit 0
+else
+  my_arr="${arr_input}"
+fi
+
+
+
+# create results file
+if [ ! -f "ex1-sol-aviv.txt" ]
+then
+    touch ex1-sol-aviv.txt
+else
+    rm ex1-sol-aviv.txt
+    touch ex1-sol-aviv.txt
+
+fi
+
+
+
+# write all elements of array to a file and get Num_of_elments
+iteration_index=0
+for element in ${my_arr[@]}
+do
+  echo ${element} >> ex1-sol-aviv.txt
+  iteration_index=$(expr $iteration_index + 1)
+
+  # update every 2 iter...
+  if [ `expr $iteration_index % 2` -eq 0 ]
+  then
+    echo Processed $iteration_index items
+  fi
+   
+done
+
+echo Processed $iteration_index items >> ex1-sol-aviv.txt
+
+# saving with script name
+cat ex1-sol-aviv.txt > temp
+mv ex1-sol-aviv.txt ex1_sol_aviv.txt
+
+# last part can be done with ' ./myScript > logs.txt' from shell
