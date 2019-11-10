@@ -1,0 +1,8 @@
+
+
+while :
+do
+	echo "inf LO0P"
+	sleep 1
+	
+done
