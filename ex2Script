@@ -1,9 +1,15 @@
+
+
+# run for "limit" times create a sub process of infinite loop and kill it
 counter=0
-while [ $counter -lt 2 ]
+Limit=3
+
+# the loop :
+while [ $counter -lt $Limit ]
 do
-    gnome-terminal -e ./infLoop
+    ./infLoop &     # run at background as sub process
+    sleep 2
+    pkill -P $$     # kill the sub process
     counter=$(expr $counter + 1)
 done
 
-sleep 2
-killall gnome-terminal
