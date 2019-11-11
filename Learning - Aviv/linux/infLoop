@@ -1,7 +1,9 @@
 
+echo start of inf
 
 while :
 do
-	echo "Press [CTRL+C] to stop.."
+	echo "inf LO0P"
 	sleep 1
+	
 done
